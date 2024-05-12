@@ -4,25 +4,14 @@
 
 </div>
 
-<div align="right">
+## Introduction - المقدمة
 
-## المقدمة
+Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some important enhancements that are not supported out of the box and can take time when setting projects up. This should help you avoid wasting several hours implementing these needed features for every new project you create.
 
-لارافل تيار هو النسخة المحسنة من لارافل جيتستريم. إنه فرع يضيف بعض التحسينات المهمة التي لا يتم دعمها وقد تستغرق وقتًا عند إعداد المشاريع.
+## Features - الخصائص
 
-</div>
-
-## Introduction
-
-Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some needed enhancements that are not supported out of the box and can take time when setting projects up.
-
-<div align="right">
-
-## الخصائص 
-
-</div>
-
-## Features
+- General small issues and fixes.
+- Localisation support.
 
 ## Important Links - الروابط المهمة
 
@@ -31,14 +20,7 @@ Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fes
 - [Laravel GitHub Repository](https://github.com/laravel/laravel)
 - [Laravel Jetstream GitHub Repository](https://github.com/laravel/jetstream)
 
-<div align="right">
 
-## الترخيص
-
-.لارافل تيار هو برنامج مفتوح المصدر مرخص تحت [رخصة ام اي تي](LICENSE.md)
-
-</div>
-
-## License
+## License - الترخيص
 
 Laravel Tayar is open-sourced software licensed under the [MIT license](LICENSE.md).
