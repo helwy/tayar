@@ -355,6 +355,7 @@ EOF;
                 'postcss' => '^8.4.32',
                 'tailwindcss' => '^3.4.0',
                 'vue' => '^3.3.13',
+                'laravel-vue-i18n' => '^2.7.6'
             ] + $packages;
         });
 
