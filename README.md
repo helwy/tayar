@@ -1,42 +1,44 @@
-<p align="center"><img src="/art/logo.svg" alt="Logo Laravel Jetstream"></p>
+<div align="center">
 
-<p align="center">
-    <a href="https://github.com/laravel/jetstream/actions">
-        <img src="https://github.com/laravel/jetstream/workflows/tests/badge.svg" alt="Build Status">
-    </a>
-    <a href="https://packagist.org/packages/laravel/jetstream">
-        <img src="https://img.shields.io/packagist/dt/laravel/jetstream" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/laravel/jetstream">
-        <img src="https://img.shields.io/packagist/v/laravel/jetstream" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/laravel/jetstream">
-        <img src="https://img.shields.io/packagist/l/laravel/jetstream" alt="License">
-    </a>
-</p>
+# Laravel Tayar - لارافل طيار
+
+</div>
+
+<div align="right">
+
+## المقدمة
+
+لارافل تيار هو النسخة المحسنة من لارافل جيتستريم. إنه فرع يضيف بعض التحسينات المهمة التي لا يتم دعمها وقد تستغرق وقتًا عند إعداد المشاريع.
+
+</div>
 
 ## Introduction
 
-Laravel Jetstream is a beautifully designed application scaffolding for Laravel. Jetstream provides the perfect starting point for your next Laravel application and includes login, registration, email verification, two-factor authentication, session management, API support via [Laravel Sanctum](https://github.com/laravel/sanctum), and optional team management.
+Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some needed enhancements that are not supported out of the box and can take time when setting projects up.
 
-Jetstream is designed using [Tailwind CSS](https://tailwindcss.com) and offers your choice of [Livewire](https://jetstream.laravel.com/stacks/livewire.html) or [Inertia](https://jetstream.laravel.com/stacks/inertia.html) scaffolding.
+<div align="right">
 
-## Official Documentation
+## الخصائص 
 
-Documentation for Jetstream can be found on the [Jetstream website](https://jetstream.laravel.com).
+</div>
 
-## Contributing
+## Features
 
-Thank you for considering contributing to Jetstream! You can read the contribution guide [here](.github/CONTRIBUTING.md).
+## Important Links - الروابط المهمة
 
-## Code of Conduct
+- [Laravel Documentation](https://laravel.com/)
+- [Laravel Jetstream Documentation](https://jetstream.laravel.com)
+- [Laravel GitHub Repository](https://github.com/laravel/laravel)
+- [Laravel Jetstream GitHub Repository](https://github.com/laravel/jetstream)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<div align="right">
 
-## Security Vulnerabilities
+## الترخيص
 
-Please review [our security policy](https://github.com/laravel/jetstream/security/policy) on how to report security vulnerabilities.
+.لارافل تيار هو برنامج مفتوح المصدر مرخص تحت [رخصة ام اي تي](LICENSE.md)
+
+</div>
 
 ## License
 
-Laravel Jetstream is open-sourced software licensed under the [MIT license](LICENSE.md).
+Laravel Tayar is open-sourced software licensed under the [MIT license](LICENSE.md).
