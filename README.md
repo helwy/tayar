@@ -12,7 +12,6 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 
 ## Features - الخصائص
 
-- General small issues and fixes.
 - Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
 
 ## Installation - التثبيت
