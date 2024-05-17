@@ -13,6 +13,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 ## Features - الخصائص
 
 - Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
+- Supports right-to-left (RTL) layouts for specified languages.
 
 ## Installation - التثبيت
 
@@ -65,6 +66,10 @@ Then serve your application
 ```bash
 php artisan serve
 ```
+
+## Usage - الاستخدام
+
+- **RTL Layout Support** - In order to use the RTL layout for certain langauges, go to the `config/jetstream.php` and look for the `rtl_locales` key in the Tayar configurations section. Add or removes the locales you want to support RTL for in this array. The default is only Arabic.
 
 ## Important Links - الروابط المهمة
 

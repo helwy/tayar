@@ -78,4 +78,15 @@ return [
 
     'profile_photo_disk' => 'public',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Tayar Configurations
+    |--------------------------------------------------------------------------
+    |
+    | These are configurations specific to Tayar enhancements.
+    |
+    */
+
+    'rtl_locales' => ['ar'],
+
 ];
