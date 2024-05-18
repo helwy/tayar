@@ -3,6 +3,7 @@
 namespace Laravel\Jetstream;
 
 use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Middleware\SetLocaleByCookie;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -187,6 +188,10 @@ class JetstreamServiceProvider extends ServiceProvider
 
         if (class_exists(HandleInertiaRequests::class)) {
             $kernel->appendToMiddlewarePriority(HandleInertiaRequests::class);
+        }
+
+        if (class_exists(SetLocaleByCookie::class)) {
+            $kernel->appendToMiddlewarePriority(SetLocaleByCookie::class);
         }
 
         Event::listen(function (PasswordUpdatedViaController $event) {

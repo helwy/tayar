@@ -397,9 +397,11 @@ EOF;
             ->run(function ($type, $output) {
                 $this->output->write($output);
             });
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetLocaleByCookie.php', app_path('Http/Middleware/SetLocaleByCookie.php'));
 
         $this->installMiddleware([
             '\App\Http\Middleware\HandleInertiaRequests::class',
+            '\App\Http\Middleware\SetLocaleByCookie::class',
             '\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class',
         ]);
 
