@@ -69,6 +69,7 @@ php artisan serve
 
 ## Usage - الاستخدام
 
+- **Available Locales** - The available locales are defined in the `config/jetstream.php` file using the the `available_locales` key in the Tayar configurations section. You can add or remove locales from there. The default locales are English and Arabic.
 - **RTL Layout Support** - In order to use the RTL layout for certain langauges, go to the `config/jetstream.php` and look for the `rtl_locales` key in the Tayar configurations section. Add or removes the locales you want to support RTL for in this array. The default is only Arabic.
 
 ## Important Links - الروابط المهمة

@@ -390,13 +390,13 @@ EOF;
         copy(__DIR__.'/../../stubs/app/Providers/JetstreamServiceProvider.php', app_path('Providers/JetstreamServiceProvider.php'));
         ServiceProvider::addProviderToBootstrapFile('App\Providers\JetstreamServiceProvider');
 
+        // Controllers
+        (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/LocaleController.php', app_path('Http/Controllers/LocaleController.php'));
+
         // Middleware...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
-        (new Process([$this->phpBinary(), 'artisan', 'inertia:middleware', 'HandleInertiaRequests', '--force'], base_path()))
-            ->setTimeout(null)
-            ->run(function ($type, $output) {
-                $this->output->write($output);
-            });
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetLocaleByCookie.php', app_path('Http/Middleware/SetLocaleByCookie.php'));
 
         $this->installMiddleware([

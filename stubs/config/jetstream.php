@@ -87,6 +87,10 @@ return [
     |
     */
 
-    'rtl_locales' => ['ar'],
+    'available_locales' => [
+        'en' => 'English',
+        'ar' => 'العربية',
+    ],
 
+    'rtl_locales' => ['ar'],
 ];
