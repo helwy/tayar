@@ -69,7 +69,7 @@ php artisan serve
 
 ## Usage - الاستخدام
 
-- **Available Locales** - The available locales are defined in the `config/jetstream.php` file using the the `available_locales` key in the Tayar configurations section. You can add or remove locales from there. The default locales are English and Arabic.
+- **Available Locales** - The available locales are defined in the `config/jetstream.php` file using the the `available_locales` key in the Tayar configurations section. You can add or remove locales from there. When you add an unsupported locale (doesn't have a translation file yet), you will have to create the translation files for it in the `resources/lang` directory. The default locales are English and Arabic.
 - **RTL Layout Support** - In order to use the RTL layout for certain langauges, go to the `config/jetstream.php` and look for the `rtl_locales` key in the Tayar configurations section. Add or removes the locales you want to support RTL for in this array. The default is only Arabic.
 
 ## Important Links - الروابط المهمة
@@ -78,6 +78,18 @@ php artisan serve
 - [Laravel Jetstream Documentation](https://jetstream.laravel.com)
 - [Laravel GitHub Repository](https://github.com/laravel/laravel)
 - [Laravel Jetstream GitHub Repository](https://github.com/laravel/jetstream)
+
+## FAQ - الأسئلة الشائعة
+
+1. **What to do if I don't want to have multiple locales?**
+- By keeping only one locale in the `available_locales` array in configuration, the language switcher will not be displayed in the UI, and you won't have to worry too much about localisation, though I would advise to keep using the localisation files for any static text in your application to make it easier to localise in the future if needed.
+
+2. **What if I don't need RTL languages?**
+- Keeping the `rtl_locales` in the configuration file as an empty array will not use RTL layout for any language. You may also remove the `rtl` class check in the `app.blade.php` body element classes, but that is optional.
+
+## Contact - التواصل
+
+## Contributing - المساهمة
 
 ## License - الترخيص
 
