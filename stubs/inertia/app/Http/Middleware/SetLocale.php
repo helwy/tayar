@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class SetLocaleByCookie
+class SetLocale
 {
     /**
-     * Handle an incoming request and set the locale based on the user's cookie.
+     * Handle an incoming request and set the locale based on the user's cookie and database.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */

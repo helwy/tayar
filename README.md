@@ -14,6 +14,8 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 
 - Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
 - Supports right-to-left (RTL) layouts for specified languages.
+- Language switcher in the top navigation bar, persisted in a cookie and user database.
+- Dark mode support and toggle in top bar, persisted in a cookie and user database.
 - Admin layout with a fixed top navigation bar and a fixed sidebar. Unified navigation items variable.
 
 ## Installation - التثبيت

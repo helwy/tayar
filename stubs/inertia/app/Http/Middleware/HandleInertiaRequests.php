@@ -43,6 +43,16 @@ class HandleInertiaRequests extends Middleware
             }
         }
 
+        if (isset($_COOKIE['dark_theme'])) {
+            $darkTheme = $_COOKIE['dark_theme'];
+        } else if (Auth::check()) {
+            $userTheme = Auth::user()->dark_theme;
+
+            if (isset($userTheme) && !$userTheme) {
+                $darkTheme = 'light';
+            }
+        }
+
         return [
             ...parent::share($request),
             'ziggy' => fn () => [
@@ -51,6 +61,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'current_locale' => $locale ?? config('app.locale'),
             'available_locales' => config('jetstream.available_locales'),
+            'dark_theme' => $darkTheme ?? 'dark',
         ];
     }
 }

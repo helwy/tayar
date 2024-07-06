@@ -8,6 +8,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import LanguageSelector from "@/Components/LanguageSelector.vue";
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import DarkModeToggle from "@/Components/DarkModeToggle.vue";
 
 defineProps({
     title: String,
@@ -113,6 +114,10 @@ const logout = () => {
                             </div>
 
                             <div class="ms-3 relative">
+                                <DarkModeToggle />
+                            </div>
+
+                            <div class="ms-3 relative">
                                 <LanguageSelector />
                             </div>
 
@@ -164,6 +169,10 @@ const logout = () => {
 
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
+                            <div class="ms-3 relative">
+                                <DarkModeToggle />
+                            </div>
+
                             <div class="ms-3 relative">
                                 <LanguageSelector />
                             </div>

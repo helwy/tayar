@@ -393,15 +393,18 @@ EOF;
         // Controllers
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/LocaleController.php', app_path('Http/Controllers/LocaleController.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/ThemeController.php', app_path('Http/Controllers/ThemeController.php'));
 
         // Middleware...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
-        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetLocaleByCookie.php', app_path('Http/Middleware/SetLocaleByCookie.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetLocale.php', app_path('Http/Middleware/SetLocale.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetTheme.php', app_path('Http/Middleware/SetTheme.php'));
 
         $this->installMiddleware([
             '\App\Http\Middleware\HandleInertiaRequests::class',
-            '\App\Http\Middleware\SetLocaleByCookie::class',
+            '\App\Http\Middleware\SetLocale::class',
+            '\App\Http\Middleware\SetTheme::class',
             '\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class',
         ]);
 
