@@ -35,9 +35,10 @@ const logout = () => {
         <Banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+            <!-- Top Navigation Bar -->
+            <nav class="fixed w-full z-10 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
@@ -45,13 +46,6 @@ const logout = () => {
                                 <Link :href="route('dashboard')">
                                     <ApplicationMark class="block h-9 w-auto" />
                                 </Link>
-                            </div>
-
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    {{ $t('dashboard') }}
-                                </NavLink>
                             </div>
                         </div>
 
@@ -282,17 +276,28 @@ const logout = () => {
                 </div>
             </nav>
 
-            <!-- Page Heading -->
-            <header v-if="$slots.header" class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
+            <!-- Top Navigation Bar Space Placeholder -->
+            <div class="h-16"></div>
 
             <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+            <div class="flex flex-1 overflow-hidden">
+                <!-- Sidebar Space Placeholder -->
+                <div class="w-64 hidden sm:flex">
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="fixed h-full w-64 p-6 text-white bg-gray-200 dark:bg-gray-700 overflow-y-auto flex-col gap-y-2 hidden sm:flex">
+                    <!-- Navigation Links -->
+                    <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        {{ $t('dashboard') }}
+                    </NavLink>
+                </aside>
+
+                <!-- Page Content -->
+                <main class="flex-1 overflow-y-auto">
+                    <slot />
+                </main>
+            </div>
         </div>
     </div>
 </template>

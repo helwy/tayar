@@ -14,6 +14,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 
 - Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
 - Supports right-to-left (RTL) layouts for specified languages.
+- Admin layout with a fixed top navigation bar and a fixed sidebar.
 
 ## Installation - التثبيت
 
@@ -25,7 +26,7 @@ composer create-project laravel/laravel tayar-app
 cd tayar-app
 ```
 
-Add the following to your `composer.json` file (replace `{branch}` with any branch you want to use from the Tayar repository):
+Add the following to your `composer.json` file:
 
 ```
 {
@@ -36,7 +37,7 @@ Add the following to your `composer.json` file (replace `{branch}` with any bran
         }
     ],
     "require": {
-        "laravel/jetstream": "dev-{branch}"
+        "laravel/jetstream": "dev-5.x"
     }
 }
 ```
