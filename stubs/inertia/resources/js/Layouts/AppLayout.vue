@@ -15,6 +15,10 @@ defineProps({
 
 const showingNavigationDropdown = ref(false);
 
+const navLinks = ref([
+    { route: 'dashboard', name: 'dashboard' },
+]);
+
 const switchToTeam = (team) => {
     router.put(route('current-team.update'), {
         team_id: team.id,
@@ -194,8 +198,12 @@ const logout = () => {
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            {{ $t('dashboard') }}
+                        <ResponsiveNavLink
+                            v-for="(link, index) in navLinks"
+                            :key="index"
+                            :href="route(link.route)"
+                            :active="route().current(link.route)">
+                            {{ $t(link.name) }}
                         </ResponsiveNavLink>
                     </div>
 
@@ -288,8 +296,12 @@ const logout = () => {
                 <!-- Sidebar -->
                 <aside class="fixed h-full w-64 p-6 text-white bg-gray-200 dark:bg-gray-700 overflow-y-auto flex-col gap-y-2 hidden sm:flex">
                     <!-- Navigation Links -->
-                    <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                        {{ $t('dashboard') }}
+                    <NavLink
+                        v-for="(link, index) in navLinks"
+                        :key="index"
+                        :href="route(link.route)"
+                        :active="route().current(link.route)">
+                        {{ $t(link.name) }}
                     </NavLink>
                 </aside>
 
