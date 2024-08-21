@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('admin')->default(false);
             $table->string('language')->nullable();
             $table->boolean('dark_theme')->default(true);
             $table->foreignId('current_team_id')->nullable();

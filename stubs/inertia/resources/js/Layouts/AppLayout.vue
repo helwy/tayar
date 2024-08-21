@@ -17,7 +17,7 @@ defineProps({
 const showingNavigationDropdown = ref(false);
 
 const navLinks = ref([
-    { route: 'dashboard', name: 'dashboard' },
+    { route: 'admin.home', name: 'dashboard' },
 ]);
 
 const switchToTeam = (team) => {
@@ -48,7 +48,7 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('home')">
                                     <ApplicationMark class="block h-9 w-auto" />
                                 </Link>
                             </div>
@@ -206,7 +206,7 @@ const logout = () => {
 
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <div class="pt-2 pb-3 space-y-1">
+                    <div v-if="$page.props.auth.user.admin" class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
                             v-for="(link, index) in navLinks"
                             :key="index"
@@ -299,11 +299,11 @@ const logout = () => {
             <!-- Page Content -->
             <div class="flex flex-1 overflow-hidden">
                 <!-- Sidebar Space Placeholder -->
-                <div class="w-64 hidden sm:flex">
+                <div v-if="$page.props.auth.user.admin" class="w-64 hidden sm:flex">
                 </div>
 
                 <!-- Sidebar -->
-                <aside class="fixed h-full w-64 p-6 text-white bg-gray-200 dark:bg-gray-700 overflow-y-auto flex-col gap-y-2 hidden sm:flex">
+                <aside v-if="$page.props.auth.user.admin" class="fixed h-full w-64 p-6 text-white bg-gray-200 dark:bg-gray-700 overflow-y-auto flex-col gap-y-2 hidden sm:flex">
                     <!-- Navigation Links -->
                     <NavLink
                         v-for="(link, index) in navLinks"

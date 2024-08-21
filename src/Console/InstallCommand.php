@@ -69,7 +69,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
         // Storage...
         $this->callSilent('storage:link');
 
-        $this->replaceInFile('/home', '/dashboard', config_path('fortify.php'));
+        $this->replaceInFile('/home', '/', config_path('fortify.php'));
 
         if (file_exists(resource_path('views/welcome.blade.php'))) {
             $this->replaceInFile('/home', '/dashboard', resource_path('views/welcome.blade.php'));
@@ -370,10 +370,12 @@ EOF;
         // Directories...
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Jetstream'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers/Admin'));
         (new Filesystem)->ensureDirectoryExists(resource_path('css'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Components'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Layouts'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/Admin'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/API'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/Auth'));
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/Profile'));
@@ -392,14 +394,17 @@ EOF;
 
         // Controllers
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/LocaleController.php', app_path('Http/Controllers/LocaleController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/ThemeController.php', app_path('Http/Controllers/ThemeController.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/Admin/DashboardController.php', app_path('Http/Controllers/Admin/DashboardController.php'));
 
         // Middleware...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/HandleInertiaRequests.php', app_path('Http/Middleware/HandleInertiaRequests.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetLocale.php', app_path('Http/Middleware/SetLocale.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/SetTheme.php', app_path('Http/Middleware/SetTheme.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Middleware/VerifyAdmin.php', app_path('Http/Middleware/VerifyAdmin.php'));
 
         $this->installMiddleware([
             '\App\Http\Middleware\HandleInertiaRequests::class',
@@ -427,10 +432,10 @@ EOF;
         }
 
         // Inertia Pages...
-        copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/Dashboard.vue', resource_path('js/Pages/Dashboard.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/PrivacyPolicy.vue', resource_path('js/Pages/PrivacyPolicy.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/TermsOfService.vue', resource_path('js/Pages/TermsOfService.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/Welcome.vue', resource_path('js/Pages/Welcome.vue'));
+        copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/Admin/Home.vue', resource_path('js/Pages/Admin/Home.vue'));
 
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Components', resource_path('js/Components'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Layouts', resource_path('js/Layouts'));
