@@ -18,6 +18,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 - Dark mode support and toggle in top bar, persisted in a cookie and user database.
 - Admin boolean for users, and dashboard / control panel only accessible to them.
 - Admin layout with a fixed top navigation bar and a fixed sidebar. Unified navigation items variable.
+- Frontend layout template.
 
 ## Installation - التثبيت
 
@@ -27,28 +28,8 @@ Start with creating a new Laravel project:
 composer create-project laravel/laravel tayar-app
 
 cd tayar-app
-```
 
-Add the following to your `composer.json` file:
-
-```
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/helwy/tayar"
-        }
-    ],
-    "require": {
-        "laravel/jetstream": "dev-5.x"
-    }
-}
-```
-
-Then run composer update:
-
-```bash
-composer update
+composer require helwy/tayar:5.x-dev
 ```
 
 There are multiple different configurations for the default jetstream installation, you can find more about it [here](https://jetstream.laravel.com/installation.html), but for the one mainly used while developing this fork, I install with Inertia (Vue 3) and Dark mode support.

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -21,6 +22,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function version(Request $request): ?string
     {
+
         return parent::version($request);
     }
 
@@ -59,6 +61,8 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'can_login' => Route::has('login'),
+            'can_register' => Route::has('register'),
             'current_locale' => $locale ?? config('app.locale'),
             'available_locales' => config('jetstream.available_locales'),
             'dark_theme' => $darkTheme ?? 'dark',
