@@ -69,6 +69,10 @@
     "auth.use_recovery_code": "Use a recovery code",
     "auth.verify_email": "Before continuing, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.",
 
+    "cookies.accept_all": "Accept all",
+    "cookies.essential_only": "Essential only",
+    "cookies.modal_body": "We use cookies to enhance your experience on our site. By clicking 'Accept all,' you agree to the use of all cookies, or you can select 'Essential only' to allow only the cookies necessary for the website to function properly.",
+
     "profile.browser_sessions": "Browser Sessions",
     "profile.browser_sessions_content": "If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.",
     "profile.browser_sessions_description": "Manage and log out your active sessions on other browsers and devices.",

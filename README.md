@@ -14,6 +14,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 
 - Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
 - Supports right-to-left (RTL) layouts for specified languages.
+- "All or Essential only" cookies consent modal.
 - Language switcher in the top navigation bar, persisted in a cookie and user database.
 - Dark mode support and toggle in top bar, persisted in a cookie and user database.
 - Admin boolean for users, and dashboard / control panel only accessible to them.
@@ -71,6 +72,9 @@ php artisan serve
 
 2. **What if I don't need RTL languages?**
 - Keeping the `rtl_locales` in the configuration file as an empty array will not use RTL layout for any language. You may also remove the `rtl` class check in the `app.blade.php` body element classes, but that is optional.
+
+3. **How can I make the cookie modal only appear for users in countries that require me to ask for consent?**
+- You are what is wrong with this world.
 
 ## Contact - التواصل
 

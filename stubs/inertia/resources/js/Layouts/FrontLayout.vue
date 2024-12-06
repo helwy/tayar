@@ -1,7 +1,18 @@
 <script setup>
-import {Head, Link, router} from '@inertiajs/vue3';
+import { ref } from 'vue';
+import { Head, Link, router } from '@inertiajs/vue3';
 import DropdownLink from "@/Components/DropdownLink.vue";
 import Dropdown from "@/Components/Dropdown.vue";
+
+const cookieResponse = document.cookie.split('; ').find(row => row.startsWith('cookie_response='));
+const showCookiesModal = ref(!cookieResponse);
+
+const updateCookieResponse = (cookieResponse) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+    document.cookie = "cookie_response" + "=" + cookieResponse + ";expires=" + date.toUTCString() + ";path=/";
+    showCookiesModal.value = false;
+};
 
 const logout = () => {
     router.post(route('logout'));
@@ -109,6 +120,26 @@ const logout = () => {
 
                 <footer class="py-16 text-center text-sm text-black dark:text-white/70">
                 </footer>
+            </div>
+        </div>
+
+        <div
+            v-if="showCookiesModal"
+            class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-8 fixed bottom-16 left-1/2 transform -translate-x-1/2 bg-white dark:bg-zinc-900 shadow-lg rounded-lg p-4 lg:px-8 max-w-xl lg:max-w-6xl w-full text-center">
+            <p class="text-sm text-gray-800 dark:text-gray-200 mb-4">
+                {{ $t('cookies.modal_body') }}
+            </p>
+            <div class="flex lg:flex-col w-full lg:w-fit justify-between gap-4 shrink-0">
+                <button
+                    @click="updateCookieResponse('essential')"
+                    class="bg-gray-800 dark:bg-gray-200 border text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none text-sm py-2 px-4 rounded">
+                    {{ $t('cookies.essential_only') }}
+                </button>
+                <button
+                    @click="updateCookieResponse('all')"
+                    class="bg-green-700 hover:bg-green-800 text-white uppercase tracking-widest text-sm py-2 px-4 rounded">
+                    {{ $t('cookies.accept_all') }}
+                </button>
             </div>
         </div>
     </div>
