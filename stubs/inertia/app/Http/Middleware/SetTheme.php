@@ -17,10 +17,8 @@ class SetTheme
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = null;
-
-        if (isset($_COOKIE['dark_mode'])) {
-            $darkTheme = $_COOKIE['dark_mode'];
+        if (isset($_COOKIE['dark_theme'])) {
+            $darkTheme = $_COOKIE['dark_theme'];
         } else if (Auth::check()) {
             $userTheme = Auth::user()->dark_theme;
 
