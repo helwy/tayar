@@ -132,12 +132,12 @@ const logout = () => {
             <div class="flex lg:flex-col w-full lg:w-fit justify-between gap-4 shrink-0">
                 <button
                     @click="updateCookieResponse('essential')"
-                    class="bg-gray-800 dark:bg-gray-200 border text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none text-sm py-2 px-4 rounded">
+                    class="bg-gray-800 dark:bg-gray-200 border text-white dark:text-gray-800 uppercase hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none text-sm py-2 px-4 rounded">
                     {{ $t('cookies.essential_only') }}
                 </button>
                 <button
                     @click="updateCookieResponse('all')"
-                    class="bg-green-700 hover:bg-green-800 text-white uppercase tracking-widest text-sm py-2 px-4 rounded">
+                    class="bg-green-700 hover:bg-green-800 text-white uppercase text-sm py-2 px-4 rounded">
                     {{ $t('cookies.accept_all') }}
                 </button>
             </div>

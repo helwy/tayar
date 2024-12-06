@@ -20,6 +20,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 - Admin boolean for users, and dashboard / control panel only accessible to them.
 - Admin layout with a fixed top navigation bar and a fixed sidebar. Unified navigation items variable.
 - Frontend layout template.
+- Adjustments to make Arabic text look better in the UI.
 
 ## Installation - التثبيت
 
