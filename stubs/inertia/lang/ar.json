@@ -43,6 +43,7 @@
 
     "auth.agree_terms_and_policy": "أوافق على",
     "auth.already_registered": "هل أنت مسجل بالفعل؟",
+    "auth.confirm_log_out": "هل أنت متأكد من رغبتك في تسجيل الخروج؟",
     "auth.confirm_password": "تأكيد كلمة المرور",
     "auth.confirm_password_security": "لأسباب أمنية، يجب عليك تأكيد كلمة المرور الخاصة بك قبل المتابعة.",
     "auth.current_password": "كلمة المرور الحالية",

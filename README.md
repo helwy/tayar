@@ -20,7 +20,7 @@ Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment
 - Admin boolean for users, and dashboard / control panel only accessible to them.
 - Admin layout with a fixed top navigation bar and a fixed sidebar. Unified navigation items variable.
 - Frontend layout template.
-- Adjustments to make Arabic text look better in the UI.
+- Adjustments to make Arabic text look better in the UI, and to make the frontend default layout more suitable for the added features, such as dark mode toggle and language switcher.
 
 ## Installation - التثبيت
 
@@ -84,3 +84,5 @@ php artisan serve
 ## License - الترخيص
 
 Laravel Tayar is open-sourced software licensed under the [MIT license](LICENSE.md).
+
+Laravel Tayar uses icons from [Hero Icons](https://heroicons.com/) which are licensed under the MIT license.

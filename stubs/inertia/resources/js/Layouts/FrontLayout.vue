@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
-import DropdownLink from "@/Components/DropdownLink.vue";
-import Dropdown from "@/Components/Dropdown.vue";
+import UserCircleIcon from "@/Components/UserCircleIcon.vue";
+import LogoutIcon from "@/Components/LogoutIcon.vue";
+import KeyIcon from "@/Components/KeyIcon.vue";
+import LoginIcon from "@/Components/LoginIcon.vue";
+import UserPlusIcon from "@/Components/UserPlusIcon.vue";
 
 const cookieResponse = document.cookie.split('; ').find(row => row.startsWith('cookie_response='));
 const showCookiesModal = ref(!cookieResponse);
@@ -14,8 +17,11 @@ const updateCookieResponse = (cookieResponse) => {
     showCookiesModal.value = false;
 };
 
-const logout = () => {
+const showLogoutModal = ref(false);
+
+const confirmLogout = () => {
     router.post(route('logout'));
+    showLogoutModal.value = false;
 };
 </script>
 
@@ -34,81 +40,29 @@ const logout = () => {
                                 fill="currentColor"/>
                         </svg>
                     </div>
-                    <nav v-if="$page.props.can_login" class="-mx-3 flex flex-1 justify-end">
+                    <nav v-if="$page.props.can_login" class="flex flex-1 gap-4 justify-end">
                         <template v-if="$page.props.auth.user">
-                            <Link
-                                :href="route('admin.home')"
-                                v-if="$page.props.auth.user.admin"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                {{ $t('dashboard') }}
+                            <Link :href="route('admin.home')" v-if="$page.props.auth.user.admin"
+                                  :title="$page.props.auth.user.name">
+                                <KeyIcon class="text-white hover:text-[#FF2D20] cursor-pointer" />
                             </Link>
 
-                            <Dropdown align="right" width="48">
-                                <template #trigger>
-                                    <button v-if="$page.props.jetstream.managesProfilePhotos"
-                                            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover"
-                                             :src="$page.props.auth.user.profile_photo_url"
-                                             :alt="$page.props.auth.user.name">
-                                    </button>
+                            <Link :href="route('profile.show')" :title="$page.props.auth.user.name">
+                                <UserCircleIcon class="text-white hover:text-[#FF2D20]" />
+                            </Link>
 
-                                    <span v-else class="inline-flex rounded-md">
-                                            <button type="button"
-                                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                                {{ $page.props.auth.user.name }}
-
-                                                <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                     stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
-                                                </svg>
-                                            </button>
-                                        </span>
-                                </template>
-
-                                <template #content>
-                                    <!-- Account Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ $t('profile.manage_account') }}
-                                    </div>
-
-                                    <DropdownLink :href="route('profile.show')">
-                                        {{ $t('profile') }}
-                                    </DropdownLink>
-
-                                    <DropdownLink v-if="$page.props.jetstream.hasApiFeatures"
-                                                  :href="route('api-tokens.index')">
-                                        {{ $t('api.tokens') }}
-                                    </DropdownLink>
-
-                                    <div class="border-t border-gray-200"/>
-
-                                    <!-- Authentication -->
-                                    <form @submit.prevent="logout">
-                                        <DropdownLink as="button">
-                                            {{ $t('log_out') }}
-                                        </DropdownLink>
-                                    </form>
-                                </template>
-                            </Dropdown>
+                            <div :title="$t('log_out')">
+                                <LogoutIcon class="text-white hover:text-[#FF2D20] cursor-pointer" @click="showLogoutModal = true" />
+                            </div>
                         </template>
 
                         <template v-else>
-                            <Link
-                                :href="route('login')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                {{ $t('log_in') }}
+                            <Link v-if="$page.props.can_register" :href="route('register')" :title="$t('register')">
+                                <UserPlusIcon class="text-white hover:text-[#FF2D20]" />
                             </Link>
 
-                            <Link
-                                v-if="$page.props.can_register"
-                                :href="route('register')"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                {{ $t('register') }}
+                            <Link :href="route('login')" :title="$t('log_in')" >
+                                <LoginIcon class="text-white hover:text-[#FF2D20]" />
                             </Link>
                         </template>
                     </nav>
@@ -140,6 +94,22 @@ const logout = () => {
                     class="bg-green-700 hover:bg-green-800 text-white uppercase text-sm py-2 px-4 rounded">
                     {{ $t('cookies.accept_all') }}
                 </button>
+            </div>
+        </div>
+
+        <div v-if="showLogoutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" @click="showLogoutModal = false">
+            <div class="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-6 max-w-sm w-full" @click.stop>
+                <p class="text-center text-lg text-black dark:text-white mb-4">
+                    {{ $t('auth.confirm_log_out') }}
+                </p>
+                <div class="flex justify-between">
+                    <button @click="showLogoutModal = false" class="bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded">
+                        {{ $t('close') }}
+                    </button>
+                    <button @click="confirmLogout" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded">
+                        {{ $t('log_out') }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>

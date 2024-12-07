@@ -43,6 +43,7 @@
 
     "auth.agree_terms_and_policy": "I agree to the",
     "auth.already_registered": "Already registered?",
+    "auth.confirm_log_out": "Are you sure you want to log out?",
     "auth.confirm_password": "Confirm Password",
     "auth.confirm_password_security": "For your security, please confirm your password to continue.",
     "auth.current_password": "Current Password",
