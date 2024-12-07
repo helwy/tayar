@@ -57,7 +57,7 @@
     "auth.privacy_policy": "سياسة الخصوصية",
     "auth.recovery_code": "رمز الاسترداد",
     "auth.remember_me": "تذكرني",
-    "auth.resend_verification_email": "إعادة إرسال البريد الإلكتروني للتحقق",
+    "auth.resend_verification_email": "إعادة إرسال البريد للتحقق",
     "auth.reset_password": "إعادة تعيين كلمة المرور",
     "auth.secure_area": "منطقة آمنة",
     "auth.secure_area_description": "هذه منطقة آمنة من التطبيق. يرجى تأكيد كلمة المرور الخاصة بك قبل المتابعة.",

@@ -451,6 +451,7 @@ EOF;
 
         // Language files...
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/lang', base_path('lang'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/lang', base_path('resources/lang'));
 
         // Tests...
         $stubs = $this->getTestStubsPath();
