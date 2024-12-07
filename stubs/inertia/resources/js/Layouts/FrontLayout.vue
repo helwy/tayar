@@ -44,25 +44,25 @@ const confirmLogout = () => {
                         <template v-if="$page.props.auth.user">
                             <Link :href="route('admin.home')" v-if="$page.props.auth.user.admin"
                                   :title="$page.props.auth.user.name">
-                                <KeyIcon class="text-white hover:text-[#FF2D20] cursor-pointer" />
+                                <KeyIcon class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer" />
                             </Link>
 
                             <Link :href="route('profile.show')" :title="$page.props.auth.user.name">
-                                <UserCircleIcon class="text-white hover:text-[#FF2D20]" />
+                                <UserCircleIcon class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80" />
                             </Link>
 
                             <div :title="$t('log_out')">
-                                <LogoutIcon class="text-white hover:text-[#FF2D20] cursor-pointer" @click="showLogoutModal = true" />
+                                <LogoutIcon class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer" @click="showLogoutModal = true" />
                             </div>
                         </template>
 
                         <template v-else>
                             <Link v-if="$page.props.can_register" :href="route('register')" :title="$t('register')">
-                                <UserPlusIcon class="text-white hover:text-[#FF2D20]" />
+                                <UserPlusIcon class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80" />
                             </Link>
 
                             <Link :href="route('login')" :title="$t('log_in')" >
-                                <LoginIcon class="text-white hover:text-[#FF2D20]" />
+                                <LoginIcon class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80" />
                             </Link>
                         </template>
                     </nav>
