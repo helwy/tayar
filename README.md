@@ -8,7 +8,7 @@
 
 Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some important enhancements that are not supported out of the box and can take time when setting projects up. This should help you avoid wasting several hours implementing these needed features for every new project you create. 
 
-Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment with some but not full attention given to the Livewire side, though it can also be a better starting point than Jetstream for Livewire projects also for some features (The localisation files can still be used with minimal effort for example).
+Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment with some but not full attention given to the Livewire side, though it can arguably be a better starting point than Jetstream for Livewire projects if you still need the features listed.
 
 ## Features - الخصائص
 
@@ -59,6 +59,10 @@ php artisan serve
 - **Available Locales** - The available locales are defined in the `config/jetstream.php` file using the the `available_locales` key in the Tayar configurations section. You can add or remove locales from there. When you add an unsupported locale (doesn't have a translation file yet), you will have to create the translation files for it in the `resources/lang` directory. The default locales are English and Arabic.
 - **RTL Layout Support** - In order to use the RTL layout for certain langauges, go to the `config/jetstream.php` and look for the `rtl_locales` key in the Tayar configurations section. Add or removes the locales you want to support RTL for in this array. The default is only Arabic.
 
+## Versioning - الإصدارات
+
+Laravel Tayar will be matching and updating with the latest Laravel Jetstream version, with the added features and enhancements. The versioning will be following the Laravel Jetstream versioning, with one extra number for the Tayar versioning. For example, Laravel Jetstream v5.3.3 will be Laravel Tayar v5.3.3.0.
+
 ## Important Links - الروابط المهمة
 
 - [Laravel Documentation](https://laravel.com/)
@@ -77,9 +81,25 @@ php artisan serve
 3. **How can I make the cookie modal only appear for users in countries that require me to ask for consent?**
 - You are what is wrong with this world.
 
+## Roadmap - التخطيط
+
+In no particular order, the following are some of the planned features and enhancements for Laravel Tayar:
+
+- Improvements to the Arabic localisation file.
+- More localisation files for other languages to be included.
+- Look into general user experience improvements.
+- Users list in the admin dashboard.
+- Option to change user full name field to first name and last name.
+- Notifications for users.
+- Tests for the added features.
+
 ## Contact - التواصل
 
+If you have any questions or need help with anything, feel free to contact me at [hassanelwy@gmail.com](mailto:hassanelwy@gmail.com). If you have any issues or suggestions, please open an issue on the GitHub repository.
+
 ## Contributing - المساهمة
+
+If you would like to contribute to Laravel Tayar, please fork the repository and submit a pull request. Your contributions would be highly appreciated. You can also open an issue if you have any suggestions or issues.
 
 ## License - الترخيص
 

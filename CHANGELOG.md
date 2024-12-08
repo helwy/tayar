@@ -1,5 +1,24 @@
 # Release Notes
 
+# Tayar
+
+## [Unreleased](https://github.com/helwy/tayar/compare/v5.3.3.0...5.x)
+
+## [v5.3.3.0](https://github.com/laravel/jetstream/compare/v5.3.3...helwy:tayar:v5.3.3.0) - 2024-12-08
+
+* First release of Tayar
+* Localisation support using `laravel-vue-i18n`, with English and Arabic translations included out of the box.
+* Supports right-to-left (RTL) layouts for specified languages.
+* "All or Essential only" cookies consent modal.
+* Language switcher in the top navigation bar, persisted in a cookie and user database.
+* Dark mode support and toggle in top bar, persisted in a cookie and user database.
+* Admin boolean for users, and dashboard / control panel only accessible to them.
+* Admin layout with a fixed top navigation bar and a fixed sidebar. Unified navigation items variable.
+* Frontend layout template.
+* Adjustments to make Arabic text look better in the UI, and to make the frontend default layout more suitable for the added features, such as dark mode toggle and language switcher.
+
+# Jetstream
+
 ## [Unreleased](https://github.com/laravel/jetstream/compare/v5.3.3...5.x)
 
 ## [v5.3.3](https://github.com/laravel/jetstream/compare/v5.3.2...v5.3.3) - 2024-11-13
