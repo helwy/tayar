@@ -31,7 +31,7 @@ composer create-project laravel/laravel tayar-app
 
 cd tayar-app
 
-composer require helwy/tayar:5.x-dev
+composer require helwy/tayar
 ```
 
 There are multiple different configurations for the default jetstream installation, you can find more about it [here](https://jetstream.laravel.com/installation.html), but for the one mainly used while developing this fork, I install with Inertia (Vue 3) and Dark mode support.
