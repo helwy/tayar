@@ -7,6 +7,7 @@ import KeyIcon from "@/Components/KeyIcon.vue";
 import LoginIcon from "@/Components/LoginIcon.vue";
 import UserPlusIcon from "@/Components/UserPlusIcon.vue";
 import DarkModeToggle from "@/Components/DarkModeToggle.vue";
+import FrontLanguageSelector from "@/Components/FrontLanguageSelector.vue";
 
 const cookieResponse = document.cookie.split('; ').find(row => row.startsWith('cookie_response='));
 const showCookiesModal = ref(!cookieResponse);
@@ -42,6 +43,8 @@ const confirmLogout = () => {
                         </svg>
                     </div>
                     <nav v-if="$page.props.can_login" class="flex flex-1 gap-4 justify-end">
+                        <FrontLanguageSelector />
+
                         <DarkModeToggle icon-classes="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer" />
 
                         <template v-if="$page.props.auth.user">
