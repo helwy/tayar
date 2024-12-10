@@ -1,12 +1,12 @@
 <div align="center">
 
-# Laravel Tayar - لارافل تيار
+# Tayar - تيار
 
 </div>
 
 ## Introduction - المقدمة
 
-Laravel Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some important enhancements that are not supported out of the box and can take time when setting projects up. This should help you avoid wasting several hours implementing these needed features for every new project you create. 
+Tayar is Laravel Jetstream on [Fesikh](https://en.wikipedia.org/wiki/Fesikh). It is a fork that adds some important enhancements that are not supported out of the box and can take time when setting projects up. This should help you avoid wasting several hours implementing these needed features for every new project you create. 
 
 Please note that this mainly focuses on the Inertia (Vue.js) stack at the moment with some but not full attention given to the Livewire side, though it can arguably be a better starting point than Jetstream for Livewire projects if you still need the features listed.
 
@@ -61,7 +61,7 @@ php artisan serve
 
 ## Versioning - الإصدارات
 
-Laravel Tayar will be matching and updating with the latest Laravel Jetstream version, with the added features and enhancements. The versioning will be following the Laravel Jetstream versioning, with one extra number for the Tayar versioning. For example, Laravel Jetstream v5.3.3 will be Laravel Tayar v5.3.3.0.
+Tayar will be matching and updating with the latest Laravel Jetstream version, with the added features and enhancements. The versioning will be following the Laravel Jetstream versioning, with one extra number for the Tayar versioning. For example, Laravel Jetstream v5.3.3 will be Tayar v5.3.3.0.
 
 ## Important Links - الروابط المهمة
 
@@ -83,7 +83,7 @@ Laravel Tayar will be matching and updating with the latest Laravel Jetstream ve
 
 ## Roadmap - التخطيط
 
-In no particular order, the following are some of the planned features and enhancements for Laravel Tayar:
+In no particular order, the following are some of the planned features and enhancements for Tayar:
 
 - Improvements to the Arabic localisation file.
 - More localisation files for other languages to be included.
@@ -99,10 +99,10 @@ If you have any questions or need help with anything, feel free to contact me at
 
 ## Contributing - المساهمة
 
-If you would like to contribute to Laravel Tayar, please fork the repository and submit a pull request. Your contributions would be highly appreciated. You can also open an issue if you have any suggestions or issues.
+If you would like to contribute to Tayar, please fork the repository and submit a pull request. Your contributions would be highly appreciated. You can also open an issue if you have any suggestions or issues.
 
 ## License - الترخيص
 
-Laravel Tayar is open-sourced software licensed under the [MIT license](LICENSE.md).
+Tayar is open-sourced software licensed under the [MIT license](LICENSE.md).
 
-Laravel Tayar uses icons from [Hero Icons](https://heroicons.com/) which are licensed under the MIT license.
+Tayar uses icons from [Hero Icons](https://heroicons.com/) which are licensed under the MIT license.
