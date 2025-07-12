@@ -16,6 +16,9 @@ class HomeController extends Controller
      */
     public function index(Request $request): \Inertia\Response
     {
-        return Inertia::render('Welcome');
+        return Inertia::render('Welcome', [
+            'app_name' => config('app.name'),
+            'github' => config('app.github_repo'),
+        ]);
     }
 }

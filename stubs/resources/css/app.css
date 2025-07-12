@@ -10,3 +10,100 @@ body.rtl {
     direction: rtl;
     text-align: right;
 }
+
+.toast-enter-active,
+.toast-leave-active {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.privacy-policy,
+.contact-div {
+    @apply text-black dark:text-white space-y-4 px-2;
+}
+
+.privacy-policy h1,
+.contact-div h1 {
+    @apply text-2xl;
+}
+
+.privacy-policy b,
+.contact-div b {
+    @apply font-semibold;
+}
+
+.privacy-policy a,
+.contact-div a {
+    @apply underline cursor-pointer hover:text-black/70 dark:hover:text-white/80;
+}
+
+.privacy-policy ul,
+.contact-div ul {
+    @apply list-disc ps-8;
+}
+
+.cookie-modal {
+    @apply flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-8 fixed bottom-16 left-1/2
+    transform -translate-x-1/2 bg-white dark:bg-zinc-900 shadow-lg rounded-lg p-4 lg:px-8
+    max-w-xl lg:max-w-6xl w-full text-center;
+}
+
+.cookie-message {
+    @apply text-sm text-gray-800 dark:text-gray-200 mb-4;
+}
+
+.cookie-actions {
+    @apply flex lg:flex-col w-full lg:w-fit justify-between gap-4 shrink-0;
+}
+
+.cookie-btn-essential {
+    @apply bg-gray-800 dark:bg-gray-200 border text-white dark:text-gray-800 uppercase
+    hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white
+    active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none text-sm py-2 px-4 rounded;
+}
+
+.cookie-btn-accept {
+    @apply bg-green-700 hover:bg-green-800 text-white uppercase text-sm py-2 px-4 rounded;
+}
+
+.front-text {
+    @apply text-black hover:text-black/70 group-hover:text-black/70 dark:text-white
+    dark:hover:text-white/80 dark:group-hover:text-white/80;
+}
+
+.front-link {
+    @apply front-text cursor-pointer;
+}
+
+.front-icon-style {
+    @apply front-text shrink-0 ltr:scale-x-[-1];
+}
+
+.front-nav {
+    @apply flex items-center gap-x-2 cursor-pointer;
+}
+
+.modal-card {
+    @apply fixed inset-0 bg-gray-950 bg-opacity-75 flex justify-center items-center;
+}
+
+.modal-card-body {
+    @apply flex flex-col gap-y-2 pt-2 pb-6 px-2 rounded-md shadow-md w-[600px] border border-gray-600
+    text-gray-800 dark:text-gray-300 bg-white dark:bg-gray-950 max-h-[90vh];
+}
+
+.modal-text {
+    @apply tracking-wide w-full border-0 focus:outline-none focus:ring-0 focus:border-0 rounded-md bg-transparent
+    resize-none box-border;
+}
+
+.modal-button {
+    @apply px-2.5 rounded-md font-bold;
+}

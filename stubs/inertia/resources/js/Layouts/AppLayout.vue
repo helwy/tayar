@@ -39,7 +39,7 @@ const logout = () => {
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen">
             <!-- Top Navigation Bar -->
             <nav class="fixed w-full z-10 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
                 <!-- Primary Navigation Menu -->
@@ -49,7 +49,7 @@ const logout = () => {
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('home')">
-                                    <ApplicationLogo class="block h-9 w-auto text-[#FF2D20]" />
+                                    <ApplicationLogo class="block h-9 w-auto text-primary" />
                                 </Link>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ const logout = () => {
                             </div>
 
                             <div class="ms-3 relative">
-                                <DarkModeToggle />
+                                <DarkModeToggle class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150" />
                             </div>
 
                             <div class="ms-3 relative">
@@ -170,7 +170,7 @@ const logout = () => {
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
                             <div class="ms-3 relative">
-                                <DarkModeToggle />
+                                <DarkModeToggle class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150" />
                             </div>
 
                             <div class="ms-3 relative">

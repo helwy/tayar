@@ -50,17 +50,13 @@ onUnmounted(() => {
 
 <template>
     <div class="relative flex">
-        <button class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer"
-                ref="languageButton" @click="toggleLanguageDropdown">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>
-            </svg>
+        <button class="front-link" ref="languageButton" @click="toggleLanguageDropdown">
+            <p>{{ availableLocales[currentLocale] }}</p>
         </button>
 
         <div
-            class="absolute right-1/2 translate-x-1/2 mt-8 w-auto min-w-fit bg-white dark:bg-zinc-800 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700"
+            class="absolute right-1/2 translate-x-1/2 bottom-full mb-2 w-auto min-w-fit bg-white dark:bg-zinc-800
+                rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 z-10"
             v-if="showLanguageDropdown" ref="languageDropdown">
             <ul class="py-1">
                 <li class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 cursor-pointer flex items-center whitespace-nowrap"

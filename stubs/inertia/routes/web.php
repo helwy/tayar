@@ -1,13 +1,17 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Middleware\VerifyAdmin;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ HomeController::class, 'index'])->name('home');
+Route::get('/privacy-policy', [ PrivacyController::class, 'index'])->name('privacy');
+Route::get('/contact', [ ContactController::class, 'index'])->name('contact');
 
 Route::middleware([
     'auth:sanctum',

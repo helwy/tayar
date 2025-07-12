@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import { usePage } from "@inertiajs/vue3";
-import MoonIcon from "@/Components/MoonIcon.vue";
-import SunIcon from "@/Components/SunIcon.vue";
 
 const props = defineProps({
     iconClasses: {
@@ -33,8 +31,8 @@ const toggleMode = () => {
 </script>
 
 <template>
-    <button type="button" class="flex items-center" @click="toggleMode">
-        <SunIcon v-if="darkMode === 'dark'" :class="iconClasses" />
-        <MoonIcon v-else :class="iconClasses" />
+    <button type="button" @click="toggleMode">
+        <p v-if="darkMode === 'dark'">{{ $t('light_mode') }}</p>
+        <p v-else>{{ $t('dark_mode') }}</p>
     </button>
 </template>

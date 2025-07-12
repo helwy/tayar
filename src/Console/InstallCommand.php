@@ -400,10 +400,18 @@ EOF;
         copy(__DIR__.'/../../stubs/app/Providers/JetstreamServiceProvider.php', app_path('Providers/JetstreamServiceProvider.php'));
         ServiceProvider::addProviderToBootstrapFile('App\Providers\JetstreamServiceProvider');
 
+        // Env Variables
+        $this->addEnvVariables([
+            'APP_NAME=' => ['APP_VERSION', 'APP_VERSION_LINK'],
+            'APP_URL=' => ['CONTACT_EMAIL', 'GITHUB_REPO', 'LINKEDIN', 'MASTODON', 'BLUESKY', 'THREADS', 'TWITTER'],
+        ]);
+
         // Controllers
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/ContactController.php', app_path('Http/Controllers/ContactController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/LocaleController.php', app_path('Http/Controllers/LocaleController.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/PrivacyController.php', app_path('Http/Controllers/PrivacyController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/ThemeController.php', app_path('Http/Controllers/ThemeController.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Http/Controllers/Admin/DashboardController.php', app_path('Http/Controllers/Admin/DashboardController.php'));
 
@@ -439,7 +447,11 @@ EOF;
             unlink(resource_path('views/welcome.blade.php'));
         }
 
+        // Config files...
+        copy(__DIR__.'/../../stubs/config/app.php', config_path('app.php'));
+
         // Inertia Pages...
+        copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/ContactPage.vue', resource_path('js/Pages/ContactPage.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/PrivacyPolicy.vue', resource_path('js/Pages/PrivacyPolicy.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/TermsOfService.vue', resource_path('js/Pages/TermsOfService.vue'));
         copy(__DIR__.'/../../stubs/inertia/resources/js/Pages/Welcome.vue', resource_path('js/Pages/Welcome.vue'));
@@ -449,6 +461,7 @@ EOF;
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Layouts', resource_path('js/Layouts'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Pages/API', resource_path('js/Pages/API'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Pages/Auth', resource_path('js/Pages/Auth'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Pages/Privacy', resource_path('js/Pages/Privacy'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia/resources/js/Pages/Profile', resource_path('js/Pages/Profile'));
 
         copy(__DIR__.'/../../stubs/inertia/routes/web.php', base_path('routes/web.php'));
@@ -912,5 +925,41 @@ EOF;
     protected function isUsingPest()
     {
         return class_exists(\Pest\TestSuite::class);
+    }
+
+    /**
+     * Add the given environment variables to the .env files.
+     *
+     * @param  array  $variables
+     * @return void
+     */
+    protected function addEnvVariables(array $groups)
+    {
+        foreach (['.env', '.env.example'] as $file) {
+            $path = base_path($file);
+            $content = file_get_contents($path);
+
+            foreach ($groups as $anchor => $variables) {
+                $missing = array_filter($variables, function ($var) use ($content) {
+                    return !preg_match("/^{$var}=.*$/m", $content);
+                });
+
+                if (empty($missing)) {
+                    continue;
+                }
+
+                $pattern = "/^{$anchor}.*$/m";
+                if (preg_match($pattern, $content, $matches, PREG_OFFSET_CAPTURE)) {
+                    $insertPos = $matches[0][1] + strlen($matches[0][0]);
+                    $varsText = PHP_EOL . implode(PHP_EOL, array_map(fn($v) => $v . '=', $variables));
+                    $content = substr_replace($content, $varsText, $insertPos, 0);
+                } else {
+                    $varsText = PHP_EOL . implode(PHP_EOL, array_map(fn($v) => $v . '=', $variables));
+                    $content .= $varsText;
+                }
+            }
+
+            file_put_contents($path, $content);
+        }
     }
 }

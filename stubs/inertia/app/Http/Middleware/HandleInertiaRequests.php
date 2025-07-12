@@ -61,6 +61,8 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'app_version' => config('app.version'),
+            'app_version_link' => config('app.version_link'),
             'can_login' => Route::has('login'),
             'can_register' => Route::has('register'),
             'current_locale' => $locale ?? config('app.locale'),

@@ -1,22 +1,35 @@
-<script setup>
+<script setup lang="ts">
 import FrontLayout from "@/Layouts/FrontLayout.vue";
+import { computed } from 'vue';
+import {trans} from "laravel-vue-i18n";
 
-function handleImageError() {
-    document.getElementById('screenshot-container')?.classList.add('!hidden');
-    document.getElementById('docs-card')?.classList.add('!row-span-1');
-    document.getElementById('docs-card-content')?.classList.add('!flex-row');
-    document.getElementById('background')?.classList.add('!hidden');
-}
+const props = defineProps({
+    app_name: String,
+    github: String,
+});
+
+const processIntroText = computed(() => {
+    const rawText = trans('guest.introduction');
+
+    const link1Regex = /%1(.*?)%/g;
+    let processedText = rawText.replace(link1Regex, '<a href="' + props.github + '" class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer underline">$1</a>');
+
+    const link2Regex = /%2(.*?)%/g;
+    processedText = processedText.replace(link2Regex, '<a href="' + route('contact') + '" class="text-black hover:text-black/70 dark:text-white dark:hover:text-white/80 cursor-pointer underline">$1</a>');
+
+    return processedText;
+});
 </script>
 
 <template>
-    <FrontLayout>
-        <div
-            id="docs-card"
-            class="flex flex-col items-center justify-center gap-6 overflow-hidden rounded-lg bg-white h-96 p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-        >
-            <div class="relative flex items-center lg:items-end">
-                <h2 class="text-xl text-black dark:text-white">{{ $t('welcome_to_tayar') }}</h2>
+    <FrontLayout selectedPage="home">
+        <div class="w-full flex flex-1 justify-center items-center h-full m-2">
+            <div class="w-full max-w-2xl">
+                <div class="bg-yellow-300 dark:bg-gray-950 shadow-lg rounded-lg p-8 text-gray-800 dark:text-gray-300 space-y-4">
+                    <h1 class="text-2xl font-bold">{{ app_name }}</h1>
+                    <p v-html="processIntroText"></p>
+                    <p>{{ $t('guest.instructions' )}}</p>
+                </div>
             </div>
         </div>
     </FrontLayout>
