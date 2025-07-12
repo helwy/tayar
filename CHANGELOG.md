@@ -2,7 +2,22 @@
 
 # Tayar
 
-## [Unreleased](https://github.com/helwy/tayar/compare/v5.3.3.0...5.x)
+## [Unreleased](https://github.com/helwy/tayar/compare/v5.3.7.0...5.x)
+
+## [v5.3.7.0](https://github.com/helwy/tayar/compare/v5.3.3.1...v5.3.7.0) - 2025-07-12
+
+* Sync to latest Jetstream v5.3.7.
+* User model id is UUID by default.
+* Improvements to pages layout and design.
+* Basic Privacy Policy and Contact pages.
+* App version, contact and social media links variables in environment and links in the footer and pages.
+* Update to language files to include new needed strings and some general ones.
+* Use of tailwind defined primary color variable.
+* Improved language switcher and dark mode toggle.
+
+## [v5.3.3.1](https://github.com/helwy/tayar/compare/v5.3.3.0...v5.3.3.1) - 2024-12-10
+
+* Remove Laravel name and logo and content to avoid unintended trademark infringement.
 
 ## [v5.3.3.0](https://github.com/laravel/jetstream/compare/v5.3.3...helwy:tayar:v5.3.3.0) - 2024-12-08
 
@@ -25,7 +40,6 @@
 
 * Disable two factor authentication confirm button when form is processing by [@coreyhn](https://github.com/coreyhn) in https://github.com/laravel/jetstream/pull/1573
 * [5.x] Fix adding middleware to the `web` group during installation by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/jetstream/pull/1577
-
 
 ## [v5.3.6](https://github.com/laravel/jetstream/compare/v5.3.5...v5.3.6) - 2025-03-24
 
