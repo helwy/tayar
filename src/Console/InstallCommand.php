@@ -486,6 +486,9 @@ EOF;
         copy($stubs.'/inertia/TwoFactorAuthenticationSettingsTest.php', base_path('tests/Feature/TwoFactorAuthenticationSettingsTest.php'));
         copy($stubs.'/inertia/UpdatePasswordTest.php', base_path('tests/Feature/UpdatePasswordTest.php'));
 
+        // Favicon
+        copy(__DIR__.'/../../art/favicon.png', base_path('public/favicon.png'));
+
         // Teams...
         if ($this->option('teams')) {
             $this->installInertiaTeamStack();
